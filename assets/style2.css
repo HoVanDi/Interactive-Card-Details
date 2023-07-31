@@ -1,5 +1,4 @@
 
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
 
 :root {
   --Linear-gradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%); /*(active input border)*/
@@ -10,22 +9,24 @@
   --Very-dark-violet: hsl(278, 68%, 11%);
 }
 
+p{
+  margin: 0;
+}
 body {
+  background: url(./images/bg-mobile.svg) no-repeat;
   margin: 0;
   padding: 0;
-  font-family: "Space Grotesk", serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: var(--White);
 }
 
-main {
+.container {
   width: 100%;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2.5rem;
-  background-image: url(https://github.com/agusscript/interactive-card-details-form/blob/main/images/bg-main-desktop.png?raw=true);
-  background-repeat: no-repeat;
 }
 
 .occult {
@@ -52,14 +53,12 @@ form span {
 }
 
 .front {
-  background-image: url(https://github.com/agusscript/interactive-card-details-form/blob/main/images/bg-card-front.png?raw=true);
-  background-repeat: no-repeat;
-  background-size: 400px;
+  background: url(./images/card-logo.svg);
   background-position: center;
-  box-sizing: border-box;
-  padding: 1.2rem;
-  padding-left: 1.8rem;
+  box-shadow: 0px 19px 38px 0px rgba(0, 0, 0, 0.30);
   margin-right: 10rem;
+  background-size: 155%;
+  margin-bottom: 24px;
 }
 
 .front img {
@@ -68,36 +67,47 @@ form span {
 }
 
 .num-card {
-  height: 1rem;
-  font-size: 1.52rem;
-  letter-spacing: 0.2rem;
-  padding-top: 1.4rem;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 13px;
 }
 
-.name-card {
-  position: absolute;
-  margin-top: 1.1rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.1rem;
+.rectangle {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 40px;
 }
 
-.front-card-date {
-  margin-top: 2.5rem;
-  margin-left: 18.5rem;
-  font-size: 0.9rem;
+
+.rectangle .rectangle-havecolor {
+  width: 50px;
+  height: 50px;
+  background: #F5F5F5;
 }
 
-.front-card-date span {
-  margin: -1.7px;
-  letter-spacing: 1px;
+
+.rectangle .rectangle-nocolor {
+  border: 2px solid #F5F5F5;
+  width: 29px;
+  height: 29px;
+}
+
+
+.card-name-date {
+  display: flex;
+  justify-content: space-between;
 }
 
 .back {
-  background-image: url(https://github.com/agusscript/interactive-card-details-form/blob/main/images/bg-card-back.png?raw=true);
+  background-image: url(./images/IMAGE.svg);
   background-repeat: no-repeat;
   background-size: 400px;
   background-position: center;
-  margin-top: 2rem;
+}
+
+.card-name {
+  padding: 32px 63px 17px 32px;
 }
 
 .cvc-card {
@@ -462,6 +472,7 @@ form input:focus {
 
   form label {
     font-size: 0.75rem;
+    /* 12px */
   }
 
   form input {

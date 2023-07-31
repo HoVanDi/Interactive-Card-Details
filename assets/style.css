@@ -12,7 +12,7 @@ button {
 }
 
 body {
-  background: url("https://github.com/meetjoewarren/learning-center/blob/main/frontend-mentor/interactive-card-details-form-main/images/bg-main-desktop.png?raw=true") no-repeat;
+  background: url("./images/bg-mobile.svg") no-repeat;
   background-size: contain;
   font-size: 16px;
   min-height: 100vh;
@@ -40,7 +40,7 @@ body {
 
 .card-front {
   justify-self: start;
-  background: url("https://github.com/meetjoewarren/learning-center/blob/main/frontend-mentor/interactive-card-details-form-main/images/bg-card-front.png?raw=true") no-repeat;
+  background: url("./images/card-logo.svg") no-repeat;
   font-size: 14px;
   letter-spacing: 2px;
   padding: 30px;
