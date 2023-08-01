@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
 :root {
   --Linear-gradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
-  --White: #F5F5F5;
+  --White: #f5f5f5;
   /* --Light-grayish-violet: hsl(270, 3%, 87%); */
   --Dark-grayish-violet: hsl(279, 6%, 55%);
 }
@@ -21,7 +21,7 @@ body {
 }
 
 .main-container {
-  width: 1366px;
+  width: 100%;
   height: 800px;
   background: url(./images/bg-destop.svg) no-repeat;
   margin: 0 auto;
@@ -34,23 +34,31 @@ body {
   width: 1099px;
   display: flex;
   align-items: center;
-  margin: 0 107px 0px 160px;
+  margin: 248px 107px 109px 160px;
   justify-content: space-between;
 }
-
 
 .occult {
   display: none;
 }
 
 .error {
+  position: relative;
   border: 1px solid red;
+  outline: none;
 }
 
 form span {
+  margin-left: 14px;
+  margin-top: -20px;
+  position: absolute;
   display: block;
   font-size: 0.8rem;
   color: red;
+}
+
+span#cvcError {
+  margin-top: -50px;
 }
 
 .card {
@@ -64,7 +72,7 @@ form span {
 .front {
   background: url(./images/card-logo.svg);
   background-position: center;
-  box-shadow: 0px 19px 38px 0px rgba(0, 0, 0, 0.30);
+  box-shadow: 0px 19px 38px 0px rgba(0, 0, 0, 0.3);
   margin-right: 10rem;
   background-size: 155%;
 }
@@ -86,20 +94,17 @@ form span {
   margin-bottom: 40px;
 }
 
-
 .rectangle .rectangle-havecolor {
   width: 50px;
   height: 50px;
-  background: #F5F5F5;
+  background: #f5f5f5;
 }
 
-
 .rectangle .rectangle-nocolor {
-  border: 2px solid #F5F5F5;
+  border: 2px solid #f5f5f5;
   width: 29px;
   height: 29px;
 }
-
 
 .card-name-date {
   display: flex;
@@ -107,7 +112,6 @@ form span {
 }
 
 .back {
-
   background-repeat: no-repeat;
   background-size: 400px;
   background-position: center;
@@ -123,7 +127,7 @@ form span {
   font-size: 18px;
   position: absolute;
   right: 126px;
-  color: #F5F5F5;
+  color: #f5f5f5;
   top: 106px;
 }
 
@@ -141,26 +145,19 @@ form label {
 }
 
 form input {
+  letter-spacing: 1px;
   width: -webkit-fill-available;
   border-radius: 20px;
-  font-family: 'Montserrat', sans-serif;
   padding: 19px 14px 18px;
   margin-bottom: 20px;
-  border: 1px solid #6A5ACD;
-  outline: 1px solid #FF7F50;
+  border: 1px solid #6a5acd;
+  outline: 1px solid #ff7f50;
 }
-
-input#name::placeholder {
-  font-size: 16px;
-}
-
-
-
 
 ::placeholder {
-  font-size: 1rem;
-  color: rgba(151, 151, 151, 0.61);
-  font-family: "Space Grotesk", serif;
+  font-size: 16px;
+  color: #808080;
+  font-weight: 400;
 }
 
 .bottom-inputs-container {
@@ -188,7 +185,7 @@ input#name::placeholder {
   color: var(--White);
   font-family: "Roboto", serif;
   font-weight: 700;
-  background: #3A0652;
+  background: #3a0652;
   border-radius: 15px;
 }
 
@@ -199,36 +196,31 @@ input#name::placeholder {
 .submitted-status {
   width: 370px;
   text-align: center;
-  animation: fade 1s;
 }
-
-
 
 .submitted-status h2 {
   color: var(--Very-dark-violet);
   font-weight: 500;
-  letter-spacing: 0.25rem;
-  font-size: 1.6rem;
+  letter-spacing: 4px;
+  font-size: 25px;
 }
 
 .submitted-status p {
   color: var(--Dark-grayish-violet);
-  letter-spacing: 0.05rem;
+  letter-spacing: 1px;
 }
 
 #btn-continue {
   width: 100%;
   height: 46px;
-  margin-top: 2rem;
+  margin-top: 32px;
   border: none;
-  border-radius: 0.4rem;
-  background-color: var(--Very-dark-violet);
+  border-radius: 15px;
+  background: #3a0652;
   color: var(--White);
   font-size: 0.95rem;
   font-family: "Space Grotesk", serif;
-  font-weight: 500px;
-  letter-spacing: 0.01rem;
-  transition: all 0.6s;
+  font-weight: 500;
 }
 
 #btn-continue:hover {
@@ -236,13 +228,21 @@ input#name::placeholder {
   background-color: rgb(83, 52, 223);
 }
 
+span#MMerror {
+  margin-left: 5px;
+  max-width: 90px;
+}
+
+span#YYerror {
+  margin-left: 109px;
+  max-width: 90px;
+}
+
 .bg-mobile {
   display: none;
 }
 
-
-
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   body {
     background: none;
     display: block;
@@ -261,7 +261,6 @@ input#name::placeholder {
     margin: initial;
     align-items: initial;
     justify-content: initial;
-
   }
 
   .bg-mobile {
@@ -297,7 +296,6 @@ input#name::placeholder {
   .rectangle .rectangle-nocolor {
     display: contents;
   }
-
 
   .front img {
     display: block;
@@ -360,7 +358,7 @@ input#name::placeholder {
 
   .cvc-container input {
     width: 130px;
-    margin-bottom: 24px
+    margin-bottom: 24px;
   }
 
   #YY {
@@ -368,8 +366,11 @@ input#name::placeholder {
   }
 
   #btn-confirm {
-    background: #21092F;
+    background: #21092f;
     border-radius: 10px;
   }
 
+  .submitted-status {
+    width: 0;
+  }
 }

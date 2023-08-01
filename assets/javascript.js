@@ -22,16 +22,34 @@ function validateName(userName) {
     return "";
   }
 }
+let lastValidCardNumber = "0000 0000 0000 0000";
+  function validateCardNumber(cardNumber) {
+    if (cardNumber.length === 0) {
+      document.querySelector('.num-card').textContent = "0000 0000 0000 0000";
+      return "This field cannot be blank";
+    } else if (!/([0-9]{4}\s?){4}/.test(cardNumber)) {
+      document.querySelector('.num-card').textContent = lastValidCardNumber;
+      return "Invalid credit card number";
+    } else {
+       // Remove all non-numeric characters from the input
+  const formattedCardNumber = cardNumber.replace(/[^0-9]/g, '');
 
-function validateCardNumber(cardNumber) {
-  if (cardNumber.length === 0) {
-    return "This field cannot be blank";
-  } else if (!/([0-9]{4}\s?){4}/.test(cardNumber)) {
-    return "Invalid credit card number";
-  } else {
-    return "";
+  // Add leading zeros to match the original format
+  const paddedCardNumber = formattedCardNumber.padEnd(16, '0');
+  
+  // Split the formatted card number into groups of four digits
+  const cardNumberGroups = paddedCardNumber.match(/.{1,4}/g) || [];
+
+  // Update the last valid card number
+  lastValidCardNumber = cardNumberGroups.join(' ');
+
+  // Update the paragraph with the formatted card number
+  const numCardElement = document.querySelector('.num-card');
+  numCardElement.textContent = lastValidCardNumber;
+      return "";
+    }
   }
-}
+
 
 function validateYear(YY) {
   if (YY.length === 0) {
@@ -104,7 +122,6 @@ function manageErrors(errors) {
   const $YYerrorText = document.querySelector("#YYerror");
   const $cvcErrorText = document.querySelector("#cvcError");
 
-
   keys.forEach(function (key) {
     const error = errors[key];
 
@@ -116,7 +133,6 @@ function manageErrors(errors) {
       $MMerrorText.textContent = errors.MM;
       $YYerrorText.textContent = errors.YY;
       $cvcErrorText.textContent = errors.CVC;
-      
     } else {
       $form[key].className = "";
     }
@@ -136,7 +152,7 @@ function writeTextCard() {
     nameFrontCard.innerText = $cardNameInput.value;
 
     if ($cardNameInput.value === "") {
-      nameFrontCard.innerText = "JANE APPLESEED";
+      nameFrontCard.innerText = "Jane Appleseed";
     }
   });
 
@@ -148,8 +164,11 @@ function writeTextCard() {
     }
   });
 
-  $cardNumberInput.addEventListener("keyup", function(e){
-    e.target.value = e.target.value.replace(/[\s]/g, "").replace(/(.{4})/g, "$1 ").trim()
+  $cardNumberInput.addEventListener("keyup", function (e) {
+    e.target.value = e.target.value
+      .replace(/[\s]/g, "")
+      .replace(/(.{4})/g, "$1 ")
+      .trim();
   });
 
   $cardMonthInput.addEventListener("input", () => {
@@ -181,6 +200,6 @@ writeTextCard();
 
 $form.onsubmit = validateForm;
 
-$buttonContinue.onclick = function() {
+$buttonContinue.onclick = function () {
   location.reload();
-}
+};
