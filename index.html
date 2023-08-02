@@ -1,120 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Roboto:wght@100;300;400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <title>Document</title>
-    <link rel="stylesheet" href="./assets/style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <body>
-    <img class="bg-mobile" src="./assets/images/bg-mobile.svg" />
-    <div class="main-container">
-      <div class="container">
-        <div class="cards-container">
-          <div class="front card">
-            <div class="card-name">
-              <img
-                src="./assets/images/card-logo-mobile.svg"
-                alt="circles logo"
-              />
-              <div class="rectangle">
-                <div class="rectangle-havecolor"></div>
-                <div class="rectangle-nocolor"></div>
-              </div>
-              <p class="num-card">0000 0000 0000 0000</p>
-              <div class="card-name-date">
-                <span class="name-card">Jane Appleseed</span>
-                <div class="front-card-date">
-                  <span class="MM-date">00</span>
-                  <span>/</span>
-                  <span class="YY-date">00</span>
-                </div>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+
+<body>
+  <img class="bg-mobile" src="./assets/images/bg-mobile.svg" />
+  <div class="main-container">
+    <div class="container">
+      <div class="cards-container">
+        <div class="front card">
+          <div class="card-name">
+            <img src="./assets/images/card-logo-mobile.svg" alt="circles logo" />
+            <div class="rectangle">
+              <div class="rectangle-havecolor"></div>
+              <div class="rectangle-nocolor"></div>
+            </div>
+            <p class="num-card">0000 0000 0000 0000</p>
+            <div class="card-name-date">
+              <span class="name-card">Jane Appleseed</span>
+              <div class="front-card-date">
+                <span class="MM-date">00</span>
+                <span>/</span>
+                <span class="YY-date">00</span>
               </div>
             </div>
-          </div>
-          <div class="back">
-            <p class="cvc-card">000</p>
-            <img src="./assets/images/bg-card-back-destop.svg" alt="" />
           </div>
         </div>
-
-        <form id="card-form">
-          <label for="name">Jane Appleseed</label>
-          <input type="text" id="name" placeholder="e.g. Jane Appleseed" />
-          <span id="nameError"></span>
-
-          <label for="card-number">Card Number</label>
-          <input
-            type="text"
-            id="card-number"
-            placeholder="e.g. 1234 5678 9123 0000"
-            maxlength="19"
-            onkeyup="this.value = this.value.replace(/[^0-9]/, '')"
-            required
-          />
-          <span id="cardNumberError"></span>
-
-          <div class="bottom-inputs-container">
-            <div class="date-inputs-container">
-              <label>Exp. Date (MM/YY)</label>
-              <input
-                type="text"
-                id="MM"
-                name="MM"
-                placeholder="MM"
-                minlength="2"
-                maxlength="2"
-                onkeyup="this.value = this.value.replace(/[^0-9]/, '')"
-                required
-              />
-              <input
-                type="text"
-                id="YY"
-                name="YY"
-                placeholder="YY"
-                minlength="2"
-                maxlength="2"
-                onkeyup="this.value = this.value.replace(/[^0-9]/, '')"
-                required
-              />
-              <span id="MMerror"></span>
-              <span id="YYerror"></span>
-            </div>
-            <div class="cvc-container">
-              <label for="CVC">CVC</label>
-              <input
-                type="text"
-                id="CVC"
-                placeholder="e.g. 123"
-                maxlength="3"
-                onkeyup="this.value = this.value.replace(/[^0-9]/, '')"
-                required
-              />
-              <span id="cvcError"></span>
-            </div>
-          </div>
-          <button id="btn-confirm">Confirm</button>
-        </form>
-
-        <!-- Completed state start  -->
-        <div class="submitted-status occult">
-          <img
-            src="https://raw.githubusercontent.com/agusscript/interactive-card-details-form/8ec2ab452569334d4d9d05dd225e3fa23a537d66/images/icon-complete.svg"
-            alt="complete icon"
-          />
-          <h2>THANK YOU!</h2>
-          <p>We've added your card details</p>
-          <button id="btn-continue">Continue</button>
+        <div class="back">
+          <p class="cvc-card">000</p>
+          <img src="./assets/images/bg-card-back-destop.svg" alt="" />
         </div>
       </div>
-    </div>
 
-    <script src="./assets/javascript.js"></script>
-  </body>
+      <form id="card-form">
+        <label for="name">Cardholder Name</label>
+        <input type="text" id="name" placeholder="e.g. Jane Appleseed" />
+        <span id="nameError"></span>
+
+        <label for="card-number">Card Number</label>
+        <input type="text" id="card-number" placeholder="e.g. 1234 5678 9123 0000" maxlength="19"
+          onkeyup="this.value = this.value.replace(/[^0-9]/, '')" required />
+        <span id="cardNumberError"></span>
+
+        <div class="bottom-inputs-container">
+          <div class="date-inputs-container">
+            <label>Exp. Date (MM/YY)</label>
+            <input type="text" id="MM" name="MM" placeholder="MM" minlength="2" maxlength="2"
+              onkeyup="this.value = this.value.replace(/[^0-9]/, '')" required />
+            <input type="text" id="YY" name="YY" placeholder="YY" minlength="2" maxlength="2"
+              onkeyup="this.value = this.value.replace(/[^0-9]/, '')" required />
+            <span id="MMerror"></span>
+            <span id="YYerror"></span>
+          </div>
+          <div class="cvc-container">
+            <label for="CVC">CVC</label>
+            <input type="text" id="CVC" placeholder="e.g. 123" maxlength="3"
+              onkeyup="this.value = this.value.replace(/[^0-9]/, '')" required />
+            <span id="cvcError"></span>
+          </div>
+        </div>
+        <button id="btn-confirm">Confirm</button>
+      </form>
+
+      <!-- Completed state start  -->
+      <div class="submitted-status occult">
+        <img
+          src="https://raw.githubusercontent.com/agusscript/interactive-card-details-form/8ec2ab452569334d4d9d05dd225e3fa23a537d66/images/icon-complete.svg"
+          alt="complete icon" />
+        <h2>THANK YOU!</h2>
+        <p>We've added your card details</p>
+        <button id="btn-continue">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./assets/javascript.js"></script>
+</body>
+
 </html>

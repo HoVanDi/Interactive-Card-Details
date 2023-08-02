@@ -23,38 +23,26 @@ function validateName(userName) {
   }
 }
 let lastValidCardNumber = "0000 0000 0000 0000";
-  function validateCardNumber(cardNumber) {
-    if (cardNumber.length === 0) {
-      document.querySelector('.num-card').textContent = "0000 0000 0000 0000";
-      return "This field cannot be blank";
-    } else if (!/([0-9]{4}\s?){4}/.test(cardNumber)) {
-      document.querySelector('.num-card').textContent = lastValidCardNumber;
-      return "Invalid credit card number";
-    } else {
-       // Remove all non-numeric characters from the input
-  const formattedCardNumber = cardNumber.replace(/[^0-9]/g, '');
-
-  // Add leading zeros to match the original format
-  const paddedCardNumber = formattedCardNumber.padEnd(16, '0');
-  
-  // Split the formatted card number into groups of four digits
-  const cardNumberGroups = paddedCardNumber.match(/.{1,4}/g) || [];
-
-  // Update the last valid card number
-  lastValidCardNumber = cardNumberGroups.join(' ');
-
-  // Update the paragraph with the formatted card number
-  const numCardElement = document.querySelector('.num-card');
-  numCardElement.textContent = lastValidCardNumber;
-      return "";
-    }
+function validateCardNumber(cardNumber) {
+  if (cardNumber.length === 0) {
+    document.querySelector('.num-card').textContent = "0000 0000 0000 0000";
+    return "This field cannot be blank";
+  } else if (!/([0-9]{4}\s?){4}/.test(cardNumber)) {
+    document.querySelector('.num-card').textContent = lastValidCardNumber;
+    return "Invalid credit card number";
+  } else {
+    return "";
   }
+}
 
 
 function validateYear(YY) {
   if (YY.length === 0) {
     return "This field cannot be blank";
-  } else if (!/^[0-9][0-9]$/.test(YY)) {
+  } else if (!/^[0-9][1-9]$/.test(YY)) {
+    if (/^[1-9][0-9]$/.test(YY)) {
+      return "";
+    }
     return "Invalid year format";
   } else {
     return "";
@@ -64,9 +52,18 @@ function validateYear(YY) {
 function validateMonth(MM) {
   if (MM.length === 0) {
     return "This field cannot be blank";
-  } else if (!/^0[0-9]|1[0-2]$/.test(MM)) {
+  }
+  if (MM > 12) {
     return "Invalid month format";
-  } else {
+  }
+  else if (!/^0[0-9]|1[0-2]$/.test(MM)) {
+    if (/^[1-9][0-9]$/.test(MM)) {
+      return "";
+    }
+    return "Invalid month format";
+  }
+
+  else {
     return "";
   }
 }
@@ -74,7 +71,13 @@ function validateMonth(MM) {
 function validateCVC(CVC) {
   if (CVC.length === 0) {
     return "This field cannot be blank";
-  } else if (!/^[0-9][0-9][0-9]$/.test(CVC)) {
+  } else if (!/^[0-9][0-9][1-9]$/.test(CVC)) {
+    if (/^[0-9][1-9][0-9]$/.test(CVC)) {
+      return "";
+    }
+    if (/^[1-9][0-9][0-9]$/.test(CVC)) {
+      return "";
+    }
     return "Invalid CVC format";
   } else {
     return "";
@@ -199,7 +202,6 @@ function writeTextCard() {
 writeTextCard();
 
 $form.onsubmit = validateForm;
-
 $buttonContinue.onclick = function () {
   location.reload();
 };
