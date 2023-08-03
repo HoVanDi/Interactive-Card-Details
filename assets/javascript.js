@@ -53,16 +53,9 @@ function validateMonth(MM) {
   if (MM.length === 0) {
     return "This field cannot be blank";
   }
-  if (MM > 12) {
+  if (MM > 12 || MM<1) {
     return "Invalid month format";
   }
-  else if (!/^0[0-9]|1[0-2]$/.test(MM)) {
-    if (/^[1-9][0-9]$/.test(MM)) {
-      return "";
-    }
-    return "Invalid month format";
-  }
-
   else {
     return "";
   }
