@@ -364,6 +364,7 @@ span#YYerror {
   }
 
   form input {
+    height: 41px;
     margin-bottom: 24px;
     border-radius: 10px;
   }
